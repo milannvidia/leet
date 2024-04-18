@@ -2,10 +2,11 @@ class Solution {
     public boolean isHappy(int n) {
         int s = n;
         int f = n;
-        while (f != 1 && s != f) {
+        do {
             s = getNext(s);
-            f = getNext(f);
-        }
+            f = getNext(getNext(f));
+        } while (s != f);
+        return s == 1;
     }
 
     public int getNext(int n) {
